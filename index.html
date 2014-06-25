@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+}
+path.slice{
+  stroke-width:2px;
+}
+polyline{
+  opacity: .3;
+  stroke: black;
+  stroke-width: 2px;
+  fill: none;
+} 
+svg text.percent{
+  fill:white;
+  text-anchor:middle;
+  font-size:12px;
+}
+
+</style>
+<body>
+<h2> Comparison of Listen Sessions between April 1, 2013 and December 1, 2013</h2>
+<p style="color:#2ecc71"> 1 listen session per day</p>
+<p style="color:#3498db"> 2 listen session per day</p>
+<p style="color:#f1c40f"> 3 listen session per day</p>
+<p style="color:#e74c3c"> 4 listen session per day</p>
+<p style="color:#9b59b6"> >5 listen session per day</p>
+<button onClick="changeToDecData()">Change to December Data</button>
+<button onClick="changeToAprData()">Change to April Data</button>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="Donut3D.js"></script>
+<script>
+
+var aprData=[
+  {label:"One", color:"#2ecc71", value:"59"},
+  {label:"Two", color:"#3498db", value:"22"},
+  {label:"Three", color:"#f1c40f", value:"9"},
+  {label:"Four", color:"#e74c3c", value:"4"},
+  {label:"FivePlus", color:"#9b59b6", value:"6"}
+];
+
+var decData=[
+  {label:"One", color:"#2ecc71", value:"63"},
+  {label:"Two", color:"#3498db", value:"23"},
+  {label:"Three", color:"#f1c40f", value:"8"},
+  {label:"Four", color:"#e74c3c", value:"3"},
+  {label:"FivePlus", color:"#9b59b6", value:"3"}
+];
+
+var svg = d3.select("body").append("svg").attr("width",700).attr("height",300);
+
+svg.append("g").attr("id","salesDonut");
+svg.append("g").attr("id","quotesDonut");
+
+Donut3D.draw("salesDonut", AprData(), 150, 150, 130, 100, 30, 0.4);
+Donut3D.draw("quotesDonut", AprData(), 450, 150, 130, 100, 30, 0);
+  
+function changeToDecData(){
+  Donut3D.transition("salesDonut", DecData(), 130, 100, 30, 0.4);
+  Donut3D.transition("quotesDonut", DecData(), 130, 100, 30, 0);
+}
+
+function changeToAprData(){
+  Donut3D.transition("salesDonut", AprData(), 130, 100, 30, 0.4);
+  Donut3D.transition("quotesDonut", AprData(), 130, 100, 30, 0);
+}
+
+function AprData(){
+  return aprData.map(function(d){ 
+    return {label:d.label, value:d.value, color:d.color};});
+}
+
+function DecData(){
+  return decData.map(function(d){ 
+    return {label:d.label, value:d.value, color:d.color};});
+}
+</script>
+</body>
