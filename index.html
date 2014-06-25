@@ -64,7 +64,7 @@ d3.csv("data.csv", function(error, data) {
     d.total = d.ages[d.ages.length - 1].y1;
   });
 
-  data.sort(function(a, b) { return b.total - a.total; });
+  //data.sort(function(a, b) { return b.total - a.total; });
 
   x.domain(data.map(function(d) { return d.Date; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]);
