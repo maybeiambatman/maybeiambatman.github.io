@@ -17,6 +17,10 @@ table, th, td {
     border-collapse: collapse;
 }
 
+a {
+  color: #2980b9;
+}
+
 th, td {
     padding: 3px;
 }
@@ -28,15 +32,22 @@ th, td {
   shape-rendering: crispEdges;
 }
 
-.dot {
-  stroke: #000;
-}
-
 .tooltip {
   position: absolute;
   width: 200px;
   height: 28px;
   pointer-events: none;
+}
+
+.wet-asphalt {
+  color: #34495e;
+  font-weight: bold;
+}
+
+.nephritis {
+  color: #27ae60;
+  font-weight: bold;
+}
 }
 </style>
     <h1>
@@ -53,15 +64,22 @@ th, td {
     Metrics Used
     </h3>
         <p>
-        <a href="http://www.basketball-reference.com/about/ws.html">Here</a> is a detailed explanation of how Win Shares work. All data was extracted from the Basketball Reference website. As the link explains, if you are turned off by the idea of crediting individual performances to team wins, this visualization may not be for you.
+        <a href="http://www.basketball-reference.com/about/ws.html">Here</a> is a detailed explanation of how Win Shares work. All data was extracted from the Basketball Reference website. As the link explains, if you are turned off by the idea of crediting individual performances to team wins, this visualization may not be for you. For this visualization in particular, I have decided to use the data of only the first 30 picks of each draft class.
+
+        If anyone wants to dig through the raw draft data themselves you can look here:
+        <li><a href="http://www.basketball-reference.com/draft/NBA_1984.html">Class of 1984</a></li>
+        <li><a href="http://www.basketball-reference.com/draft/NBA_1996.html">Class of 1996</a></li>
+        <li><a href="http://www.basketball-reference.com/draft/NBA_2003.html">Class of 2003</a></li>
         </p>
     <h3>
     Fun Facts
     </h3>
         <p>
         Here are some fun facts about the data:
-            <li>Best win share: <b>214.0</b>. [Michael Jordan #3 pick 1984]</li>
-            <li>Largest difference between the win shares of two players in the same draft pick is: <b>207</b>. [John Stockton (1984) and Troy Bell (2003), both #16 picks]</li>
+            <li>Best win share: <b class="wet-asphalt">Michael Jordan (214.0)</b>. [#3 pick 1984]</li>
+            <li>Best late pick: <b class="wet-asphalt">John Stockton (207.7)</b>. [#16 pick 1984]</li>
+            <li>Worst early pick: <b class="wet-asphalt">Darko Milicic (7.1)</b>. [#2 pick 2003]</li>
+            <li>Largest difference between the win shares of two players in the same draft pick is: <b class="wet-asphalt">207</b>. [John Stockton (1984) and Troy Bell (2003), both #16 picks]</li>
             <p>Brief comparison of draft classes in Win Share (WS) numbers:</p>
             <table style="width:100%">
                 <tr>
@@ -75,12 +93,12 @@ th, td {
                 </tr>
                 <tr>
                     <td>1984</td>
-                    <td><b>214.0 (Michael Jordan #3)</b></td>
+                    <td><b class="nephritis">214.0 (Michael Jordan #3)</b></td>
                     <td>-2.7 (Lancaster Gordon #8)</td>
-                    <td><b>173.6</b></td>
-                    <td><b>137.3</b></td>
+                    <td><b class="nephritis">173.6</b></td>
+                    <td><b class="nephritis">137.3</b></td>
                     <td>40.1</td>
-                    <td><b>21.6</b></td>
+                    <td><b class="nephritis">21.6</b></td>
                 </tr>
                 <tr>
                     <td>1996</td>
@@ -88,13 +106,13 @@ th, td {
                     <td>-0.8 (Priest Lauderdale #28)</td>
                     <td>125.9</td>
                     <td>94.9</td>
-                    <td><b>58.3</b></td>
+                    <td><b class="nephritis">58.3</b></td>
                     <td>20.5</td>
                 </tr>
                 <tr>
                     <td>2003</td>
                     <td>168.5 (Lebron James #1)</td>
-                    <td><b>-0.6 (Reece Gaines #15)</b></td>
+                    <td><b class="nephritis">-0.6 (Reece Gaines #15)</b></td>
                     <td>104.6</td>
                     <td>92.0</td>
                     <td>20.9</td>
@@ -102,6 +120,7 @@ th, td {
                 </tr>
             </table>
         </p>
+    <h3>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
