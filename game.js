@@ -5,6 +5,7 @@ $(document).ready(function() {
     var i = 0;
     var N = 100;
     var hit = 0;
+    var time = 1500;
     var states = ["left", "up", "right", "down"];
 
     function run() {
@@ -14,7 +15,7 @@ $(document).ready(function() {
         $("html, body").animate({ scrollTop: $(document).height() }, 100);
         i ++;
         if (i < N && hit+1 === i) {
-            setTimeout(run, 2000);
+            setTimeout(run, time);
         }
         else {
             alert("Game Over! Your Score: "+score);
@@ -26,7 +27,8 @@ $(document).ready(function() {
     $(document).keydown(function (e) {
         if (e.keyCode === (37+current)) {
             score++;
-            hit ++; 
+            hit ++;
+            time = time - 50; 
             $("#score-block").text("Score: "+score);
         }
         else{

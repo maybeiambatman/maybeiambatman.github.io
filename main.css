@@ -1,13 +1,17 @@
 .game-block {
-    height: 20px;
+    height: 50px;
     width: 100%;
     display: table;
     text-align: center;
+    font-size: 25px;
+    margin: auto;
 }
 
 #score-block {
     position: fixed;
     width: 100%;
+    font-weight: bold;
+    font-size: 30px;
     display: table;
     text-align: left;
 }
