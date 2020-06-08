@@ -4,7 +4,22 @@ title: About
 permalink: /about/
 ---
 
-My name is mohd irteza. I go by "za" (like piz-za). I am a software engineer.<br/><br/>
+My name is mohd irteza. I go by <b>za</b> (like piz-za). I am a software engineer.<br/><br/>
+
+## Interests & Passions
+<table>
+<tr>
+    <td> 🎨 Drawing &nbsp;</td>
+    <td> </td>
+    <td> 🎮 Video Games </td>
+</tr>
+<tr>
+    <td> 🍞 Baking &nbsp;</td>
+    <td> </td>
+    <td> ⚽ Sports </td>
+</tr>
+</table><br>
+
 
 ## Work
 2019 - present:: 🚗 [uber atg](https://www.uber.com/us/en/atg/)<br/>
@@ -14,4 +29,6 @@ My name is mohd irteza. I go by "za" (like piz-za). I am a software engineer.<br
 
 ## Contact
 
-📧 irtezafall2010 {at} gmail {dot} com
+📧 irtezafall2010 {at} gmail {dot} com <br/>
+💼 [linkedin](https://www.linkedin.com/in/mohdirteza/)<br/>
+📟 [github](https://github.com/maybeiambatman)
