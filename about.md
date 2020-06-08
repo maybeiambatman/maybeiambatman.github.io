@@ -4,13 +4,14 @@ title: About
 permalink: /about/
 ---
 
-My name is Mohd Irteza. I am a software engineer by trade. Still looking to find
-what my true passion in life is.
+My name is mohd irteza. I go by "za" (like piz-za). I am a software engineer.<br/><br/>
 
-### More Information
+## Work
+2019 - present:: 🚗 [uber atg](https://www.uber.com/us/en/atg/)<br/>
+2017 - 2019:: 🛒 [amazon](https://www.amazon.com/)<br/>
+2015 - 2017:: 🛍️ [retailmenot](https://www.retailmenot.com/)<br/>
+2010 - 2015:: 🎓 [uiuc](https://www.illinois.edu/)<br/><br/>
 
-Proud UIUC alum.
+## Contact
 
-### Contact me
-
-[irtezafall2010@gmail.com](irtezafall2010@gmail.com)
+📧 irtezafall2010 {at} gmail {dot} com

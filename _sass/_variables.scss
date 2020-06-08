@@ -15,9 +15,12 @@ $lightGray: #eee;
 $white: #fff;
 
 // Font stacks
+$courierNew: Courier New;
+$courier: Courier;
+$courierHeader: Courier, sans-serif;
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$georgia: Georgia, sans-serif;
 
 // Mobile breakpoints
 @mixin mobile {
