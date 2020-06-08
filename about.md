@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-My name is mohd irteza. I go by <b>za</b> (like piz-za). I am a software engineer.<br/><br/>
+My name is mohd irteza. I go by the name - <b>za</b> (like piz-za).<br/><br/>
 
 ## Interests & Passions
 <table>
