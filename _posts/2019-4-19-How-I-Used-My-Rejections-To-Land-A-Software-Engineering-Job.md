@@ -23,7 +23,7 @@ At this point I had upped my game a little bit. I knew how to detect a cycle in 
 
 “Why didn’t you study harder before the interview? You stupid f*ck.”<br><br>
 
-![](https://miro.medium.com/max/3336/1*2VRXWDFb7xJ2GyJ9h5s2KA.png)<br><br>
+![](/images/reject.png)<br><br>
 
 Before the day of my next interview, something happened. It is as if my fight or flight reflex had kicked in, and my mind decided to fight. I had grown tired of my own mopey attitude. I needed to be better. Failing was not an option.<br><br>
 
