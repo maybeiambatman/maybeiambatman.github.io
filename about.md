@@ -22,7 +22,7 @@ My name is mohd irteza. I go by the name - <b>za</b> (like piz-za).<br/><br/>
 
 
 ## Work
-2019 - present:: 🚗 [uber atg](https://www.uber.com/us/en/atg/)<br/>
+2019 - 2020:: 🚗 [uber atg](https://www.uber.com/us/en/atg/)<br/>
 2017 - 2019:: 🛒 [amazon](https://www.amazon.com/)<br/>
 2015 - 2017:: 🛍️ [retailmenot](https://www.retailmenot.com/)<br/><br/>
 
