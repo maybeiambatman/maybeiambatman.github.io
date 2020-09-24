@@ -16,4 +16,4 @@ Awesome! Now I can just cross check players against Rotowire projections and pic
 
 Going back and forth from the Fantasy Premier League Draft website and Rotowire website is tedious. It involves a series of Ctrl+F commands. I get tired of it easily. Then I remember something, "Hey, I know how to code. Maybe I can just make a chrome extension to overlay the Rotowire projections on the FPL Draft website right?"<br><br>
 
-[Right](https://chrome.google.com/webstore/detail/fantastico/jjehgienoakeelhoegihepjpmdcoddeb?hl=en&authuser=0) :)
+[Right](https://chrome.google.com/webstore/detail/fantastico/jjehgienoakeelhoegihepjpmdcoddeb?hl=en&authuser=0) :)<br><br>
