@@ -2,6 +2,8 @@
 layout: post
 title: Hatching An Idea
 ---
+![](/images/fpld.PNG)<br><br>
+
 My friends play [Fantasy Premier League (FPL) Draft](https://draft.premierleague.com/) every season. Let me translate American friends, think Fantasy Football but with Soccer. Anyways, I've refused to join for the past 7 years because I always end up drafting a player from a rival team. Inevitably, somewhere along mid-season I find myself rooting for that player against my favorite team, Manchester United. The guilt eats me alive. It's awful.<br><br>
 
 This year, I caved. We go through the draft and I don't recognize 90% of the players. Despite my struggles I land a decent team. I think to myself, "I think I got this."<br><br>
