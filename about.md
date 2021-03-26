@@ -28,7 +28,6 @@ My name is mohd irteza. I go by the name - <b>za</b> (like piz-za).<br/><br/>
 2015 - 2017:: 🛍️ [retailmenot](https://www.retailmenot.com/)<br/><br/>
 
 ## School
-2019 - present:: 🎓 [uis](https://www.uis.edu/)<br/>
 2010 - 2015:: 🎓 [uiuc](https://www.illinois.edu/)<br/><br/>
 
 ## Contact
