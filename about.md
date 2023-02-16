@@ -9,14 +9,14 @@ My name is mohd irteza. I go by the name - <b>za</b> (like piz-za).<br/><br/>
 ## Interests & Passions
 <table>
 <tr>
-    <td> 🎨 Drawing &nbsp;</td>
+    <td> ⛳ Golf &nbsp;</td>
     <td> </td>
     <td> 🎮 Video Games </td>
 </tr>
 <tr>
-    <td> 🍞 Baking &nbsp;</td>
+    <td> ⚽ Soccer &nbsp;</td>
     <td> </td>
-    <td> ⚽ Sports </td>
+    <td> 🍞 Baking </td>
 </tr>
 </table><br>
 
