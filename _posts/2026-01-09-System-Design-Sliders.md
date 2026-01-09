@@ -6,11 +6,11 @@ title: "System Design Sliders"
 A cheatsheet to help prepare for system design interviews.
 
 <style>
-  /* Japanese Art Theme - System Design Widget */
+  /* Japanese Watercolor Theme - System Design Widget */
   .sds-widget {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #faf8f5;
-    border: 1px solid rgba(30, 58, 95, 0.15);
+    border: 1px solid rgba(30, 58, 95, 0.1);
     padding: 0;
     margin: 2rem 0;
     color: #1a1a1a;
@@ -19,19 +19,24 @@ A cheatsheet to help prepare for system design interviews.
     position: relative;
   }
 
-  /* Header */
+  /* Header - Watercolor wash effect */
   .sds-header {
     padding: 1.5rem;
-    background: #1e3a5f;
-    color: #faf8f5;
+    background: linear-gradient(135deg,
+      rgba(107, 154, 196, 0.15) 0%,
+      rgba(250, 248, 245, 0.9) 50%,
+      rgba(93, 154, 141, 0.1) 100%
+    );
     text-align: center;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.08);
   }
   .sds-title {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 400;
     font-family: Georgia, serif;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
+    color: #0f1f33;
   }
   .sds-subtitle {
     display: none;
@@ -44,12 +49,12 @@ A cheatsheet to help prepare for system design interviews.
     gap: 0.5rem;
     padding: 1rem;
     background: #f5f0e8;
-    border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+    border-bottom: 1px solid rgba(30, 58, 95, 0.08);
     justify-content: center;
   }
   .sds-tab-btn {
     background: #faf8f5;
-    border: 1px solid rgba(30, 58, 95, 0.2);
+    border: 1px solid rgba(30, 58, 95, 0.15);
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     font-weight: 400;
@@ -60,7 +65,7 @@ A cheatsheet to help prepare for system design interviews.
   }
   .sds-tab-btn:hover {
     background: #fff;
-    border-color: #1e3a5f;
+    border-color: rgba(30, 58, 95, 0.3);
   }
   .sds-tab-btn.active {
     background: #1e3a5f;
@@ -68,23 +73,24 @@ A cheatsheet to help prepare for system design interviews.
     border-color: #1e3a5f;
   }
 
-  /* Main Display Area */
+  /* Main Display Area - Better contrast */
   .sds-display {
     padding: 1.5rem;
-    background: linear-gradient(180deg, #1e3a5f 0%, #3d5a80 100%);
+    background: linear-gradient(180deg, #1e3a5f 0%, #2a4a6f 100%);
     color: #faf8f5;
   }
   .sds-dim-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     font-family: Georgia, serif;
     margin-bottom: 0.5rem;
+    color: #ffffff;
   }
   .sds-dim-desc {
     font-size: 0.85rem;
-    color: rgba(250, 248, 245, 0.8);
+    color: #d0dce8;
     margin-bottom: 1.5rem;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Slider */
@@ -95,34 +101,36 @@ A cheatsheet to help prepare for system design interviews.
     width: 100%;
     cursor: pointer;
     -webkit-appearance: none;
-    height: 4px;
-    background: rgba(250, 248, 245, 0.3);
-    border-radius: 2px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
     outline: none;
   }
   .sds-range-input::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     background: #c41e3a;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid #faf8f5;
+    border: 3px solid #faf8f5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
   .sds-range-input::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     background: #c41e3a;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid #faf8f5;
+    border: 3px solid #faf8f5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
   .sds-range-labels {
     display: flex;
     justify-content: space-between;
     margin-top: 0.75rem;
-    font-size: 0.7rem;
-    color: rgba(250, 248, 245, 0.7);
+    font-size: 0.75rem;
+    color: #b8c8d8;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -135,7 +143,7 @@ A cheatsheet to help prepare for system design interviews.
   }
   .sds-range-label:first-child { text-align: left; }
   .sds-range-label:last-child { text-align: right; }
-  .sds-range-label.active { color: #fff; font-weight: 600; }
+  .sds-range-label.active { color: #ffffff; font-weight: 600; }
 
   /* Content */
   .sds-content {
@@ -144,15 +152,24 @@ A cheatsheet to help prepare for system design interviews.
   }
 
   .sds-section-header {
-    border-bottom: 1px solid rgba(30, 58, 95, 0.1);
     padding-bottom: 1rem;
     margin-bottom: 1rem;
+    position: relative;
+  }
+  .sds-section-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(196, 30, 58, 0.5), rgba(107, 154, 196, 0.3), transparent);
   }
   .sds-pattern-name {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 400;
     font-family: Georgia, serif;
-    color: #1e3a5f;
+    color: #0f1f33;
     margin: 0;
   }
   .sds-pattern-label {
@@ -182,7 +199,7 @@ A cheatsheet to help prepare for system design interviews.
     transition: all 0.2s;
   }
   .sds-tag-tech {
-    background: #f5f0e8;
+    background: linear-gradient(135deg, rgba(107, 154, 196, 0.1), rgba(245, 240, 232, 0.8));
     color: #1e3a5f;
     border-color: rgba(30, 58, 95, 0.2);
   }
@@ -192,8 +209,8 @@ A cheatsheet to help prepare for system design interviews.
     border-color: #1e3a5f;
   }
   .sds-tag-concept {
-    background: #fff9e6;
-    color: #8b6914;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(240, 230, 200, 0.5));
+    color: #7a5a10;
     border-color: rgba(201, 162, 39, 0.3);
   }
   .sds-tag-concept:hover {
@@ -217,8 +234,14 @@ A cheatsheet to help prepare for system design interviews.
     border-left: 3px solid;
     background: #faf8f5;
   }
-  .sds-card-pros { border-color: #2d6a4f; }
-  .sds-card-cons { border-color: #c41e3a; }
+  .sds-card-pros {
+    border-color: #5d9a8d;
+    background: linear-gradient(135deg, rgba(93, 154, 141, 0.08), #faf8f5);
+  }
+  .sds-card-cons {
+    border-color: #c41e3a;
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.05), #faf8f5);
+  }
 
   .sds-card-title {
     font-weight: 600;
@@ -227,19 +250,19 @@ A cheatsheet to help prepare for system design interviews.
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  .sds-card-pros .sds-card-title { color: #2d6a4f; }
-  .sds-card-cons .sds-card-title { color: #c41e3a; }
+  .sds-card-pros .sds-card-title { color: #3d7a6d; }
+  .sds-card-cons .sds-card-title { color: #a01830; }
 
   .sds-list { padding-left: 1.25rem; margin: 0; }
   .sds-list li { margin-bottom: 0.35rem; color: #4a4a4a; }
 
   /* Staff Note */
   .sds-staff-note {
-    background: #f5f0e8;
+    background: linear-gradient(135deg, rgba(240, 230, 200, 0.4), rgba(245, 240, 232, 0.9));
     border-left: 3px solid #c9a227;
     padding: 1rem;
     font-size: 0.85rem;
-    color: #4a4a4a;
+    color: #5a5a5a;
     font-style: italic;
   }
   .sds-staff-label {
@@ -253,12 +276,18 @@ A cheatsheet to help prepare for system design interviews.
     letter-spacing: 0.05em;
   }
 
-  /* Example Application */
+  /* Example Application - Fixed contrast */
   .sds-example {
-    background: #1e3a5f;
+    background: linear-gradient(135deg,
+      rgba(107, 154, 196, 0.12) 0%,
+      rgba(250, 248, 245, 0.95) 50%,
+      rgba(93, 154, 141, 0.08) 100%
+    );
+    border: 1px solid rgba(30, 58, 95, 0.1);
+    border-left: 3px solid #6b9ac4;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    color: #faf8f5;
+    color: #0f1f33;
   }
   .sds-example-label {
     font-size: 0.65rem;
@@ -266,19 +295,20 @@ A cheatsheet to help prepare for system design interviews.
     font-weight: 600;
     letter-spacing: 0.1em;
     margin-bottom: 0.25rem;
-    opacity: 0.8;
+    color: #5d9a8d;
   }
   .sds-example-app {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 400;
     font-family: Georgia, serif;
     margin: 0 0 0.5rem 0;
+    color: #1e3a5f;
   }
   .sds-example-desc {
     font-size: 0.85rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
-    opacity: 0.9;
+    color: #4a4a4a;
   }
 
   /* Modal */
@@ -289,7 +319,7 @@ A cheatsheet to help prepare for system design interviews.
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 31, 51, 0.7);
+    background: rgba(15, 31, 51, 0.6);
     z-index: 10;
     justify-content: center;
     align-items: center;
@@ -302,23 +332,23 @@ A cheatsheet to help prepare for system design interviews.
     width: 100%;
     max-width: 400px;
     overflow: hidden;
-    border: 1px solid rgba(30, 58, 95, 0.2);
+    border: 1px solid rgba(30, 58, 95, 0.15);
   }
 
   .sds-modal-header {
     padding: 1rem;
     color: #faf8f5;
     position: relative;
-    background: #1e3a5f;
+    background: linear-gradient(135deg, #1e3a5f, #2a4a6f);
   }
-  .sds-modal-header.tech { background: #1e3a5f; }
-  .sds-modal-header.concept { background: #8b6914; }
+  .sds-modal-header.tech { background: linear-gradient(135deg, #1e3a5f, #2a4a6f); }
+  .sds-modal-header.concept { background: linear-gradient(135deg, #8b6914, #a07a1a); }
 
   .sds-modal-close {
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.15);
     border: none;
     color: #faf8f5;
     width: 24px;
@@ -329,7 +359,7 @@ A cheatsheet to help prepare for system design interviews.
     padding: 0;
     transition: background 0.2s;
   }
-  .sds-modal-close:hover { background: rgba(255,255,255,0.2); }
+  .sds-modal-close:hover { background: rgba(255,255,255,0.25); }
 
   .sds-modal-type {
     text-transform: uppercase;
@@ -337,13 +367,14 @@ A cheatsheet to help prepare for system design interviews.
     font-weight: 600;
     letter-spacing: 0.1em;
     margin-bottom: 0.25rem;
-    opacity: 0.8;
+    color: #d0dce8;
   }
   .sds-modal-title {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 400;
     font-family: Georgia, serif;
+    color: #ffffff;
   }
 
   .sds-modal-body {
@@ -357,8 +388,8 @@ A cheatsheet to help prepare for system design interviews.
     margin-bottom: 1.25rem;
   }
   .sds-modal-why {
-    background: #f5f0e8;
-    border-left: 3px solid #1e3a5f;
+    background: linear-gradient(135deg, rgba(107, 154, 196, 0.08), #f5f0e8);
+    border-left: 3px solid #6b9ac4;
     padding: 1rem;
   }
   .sds-modal-why-label {
