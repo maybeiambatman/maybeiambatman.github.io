@@ -3,13 +3,6 @@ layout: post
 title: "System Design Sliders"
 ---
 
-<!--
-  INSTRUCTIONS:
-  Copy and paste this entire block directly into your Markdown file (.md)
-  or save it as an _include in Jekyll (e.g., _includes/system-design-sliders.html)
-  and use {% include system-design-sliders.html %}.
--->
-
 <style>
   /* Scoped CSS to prevent conflicts with your blog theme */
   .sds-widget {
