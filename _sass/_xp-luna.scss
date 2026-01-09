@@ -1113,3 +1113,131 @@ html, body {
   align-items: center;
   justify-content: center;
 }
+
+// ========================================
+// SHUTDOWN DIALOG
+// ========================================
+.xp-shutdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.xp-shutdown-dialog {
+  background: $xp-window-bg;
+  border: 2px solid #0054e3;
+  border-radius: 8px;
+  min-width: 340px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.xp-shutdown-titlebar {
+  background: linear-gradient(180deg,
+    #0997ff 0%,
+    #0053ee 8%,
+    #0050ee 40%,
+    #0050ee 88%,
+    #0846b8 93%,
+    #06379f 95%,
+    #043897 100%
+  );
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px 6px 0 0;
+}
+
+.xp-shutdown-titlebar-text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
+
+.xp-shutdown-body {
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.xp-shutdown-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.xp-shutdown-message {
+  font-size: 12px;
+  color: #000;
+  line-height: 1.5;
+}
+
+.xp-shutdown-buttons {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.xp-dialog-btn {
+  background: linear-gradient(180deg, #fff 0%, #ece9d8 90%, #d5d2c6 100%);
+  border: 1px solid #003c74;
+  border-radius: 3px;
+  padding: 6px 20px;
+  font-size: 11px;
+  font-family: $xp-font-family;
+  cursor: pointer;
+  min-width: 75px;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #bfbcb0;
+
+  &:hover {
+    background: linear-gradient(180deg, #fff 0%, #f0ede5 90%, #e0ddd1 100%);
+  }
+
+  &:active {
+    background: linear-gradient(180deg, #e0ddd1 0%, #d5d2c6 90%, #cbc8bc 100%);
+    box-shadow:
+      inset -1px -1px 0 #fff,
+      inset 1px 1px 0 #bfbcb0;
+  }
+
+  &:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+  }
+}
+
+// ========================================
+// SHUTDOWN SCREEN (Black screen after turn off)
+// ========================================
+.xp-shutdown-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: #fff;
+  font-family: $xp-font-family;
+  font-size: 14px;
+}

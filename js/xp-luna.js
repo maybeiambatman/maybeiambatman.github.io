@@ -307,4 +307,89 @@
     }
   };
 
+  /**
+   * Log Off - Navigate to login page
+   */
+  window.xpLogOff = function() {
+    xpCloseStartMenu();
+    window.location.href = '/login/';
+  };
+
+  /**
+   * Show Shutdown Dialog
+   */
+  window.xpShowShutdownDialog = function() {
+    xpCloseStartMenu();
+    const overlay = document.getElementById('xp-shutdown-overlay');
+    if (overlay) {
+      overlay.classList.add('active');
+    }
+  };
+
+  /**
+   * Hide Shutdown Dialog
+   */
+  window.xpHideShutdownDialog = function() {
+    const overlay = document.getElementById('xp-shutdown-overlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+  };
+
+  /**
+   * Turn Off Computer - Close the browser tab/window
+   */
+  window.xpTurnOffComputer = function() {
+    xpHideShutdownDialog();
+
+    // Create shutdown screen
+    const shutdownScreen = document.createElement('div');
+    shutdownScreen.className = 'xp-shutdown-screen';
+    shutdownScreen.innerHTML = '<div style="text-align: center;"><div style="margin-bottom: 20px;">Windows is shutting down...</div></div>';
+    document.body.appendChild(shutdownScreen);
+
+    // After a brief delay, try to close or show final message
+    setTimeout(function() {
+      // Try to close the window/tab
+      window.close();
+
+      // If window.close() doesn't work (browser security restrictions),
+      // show "It is now safe to turn off your computer" message
+      setTimeout(function() {
+        shutdownScreen.innerHTML = '<div style="text-align: center;"><div style="color: #ff9900; font-size: 18px; margin-bottom: 10px;">It is now safe to turn off</div><div style="color: #ff9900; font-size: 18px;">your computer.</div></div>';
+      }, 500);
+    }, 1500);
+  };
+
+  /**
+   * Initialize shutdown dialog keyboard handler
+   */
+  function initShutdownDialog() {
+    document.addEventListener('keydown', function(e) {
+      const overlay = document.getElementById('xp-shutdown-overlay');
+      if (overlay && overlay.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          xpHideShutdownDialog();
+        } else if (e.key === 'Enter') {
+          xpTurnOffComputer();
+        }
+      }
+    });
+
+    // Close dialog when clicking overlay background
+    const overlay = document.getElementById('xp-shutdown-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          xpHideShutdownDialog();
+        }
+      });
+    }
+  }
+
+  // Add shutdown dialog initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    initShutdownDialog();
+  });
+
 })();
