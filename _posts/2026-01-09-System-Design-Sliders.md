@@ -3,7 +3,7 @@ layout: post
 title: "System Design Sliders"
 ---
 
-A cheatsheet to help prepare for system design interviews.
+Despite having ten years of industry experience I haven't done many system design interview. During these interviews, I have a tendency to fall in the classic trap of thinking there is a 'correct' architecture for every problem, which leaves me freezing up at the whiteboard. Once I realized that system design isn't about memorizing diagrams—it's about managing trade-offs, I built this interactive tool to visualize that mental shift: showing exactly how moving a single 'requirement slider' (like latency or consistency) fundamentally influences your entire tech stack.
 
 <style>
   /* Hokusai Great Wave Theme - System Design Widget */
