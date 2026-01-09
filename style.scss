@@ -13,47 +13,8 @@
 /* BASE RULES */
 /**************/
 
-// Note: Most base rules are overridden by XP Luna theme
-// These are kept for fallback/compatibility
-
-.post-title {
-  padding-bottom: 1em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-strong {
-  color: #333;
-}
-
-h1 {
-  font-size: 25px;
-  margin-top: 1em;
-}
-
-h2 {
-  font-size: 23px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-h4 {
-  font-size: 18px;
-}
-
-em, i {
-  font-style: italic;
-}
-
-strong, b {
-  font-weight: bold;
-}
+// Base rules are now handled by the Japanese theme
+// Keeping minimal fallbacks
 
 img {
   max-width: 100%;
@@ -64,36 +25,9 @@ img {
   max-width: none;
 }
 
-.date {
-  font-style: italic;
-  color: $gray;
-}
-
-// Specify the color of the selection
-::-moz-selection {
-  color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
-
-// Nicolas Gallagher's micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
 
-// Windows XP Luna Theme - imports at the end to override base styles
-@import "xp-luna";
+// Japanese Art Theme
+@import "japanese";

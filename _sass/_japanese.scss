@@ -1,0 +1,417 @@
+// Japanese Art Theme - Inspired by Hokusai & Sumi-e
+// ================================================
+
+// Color Palette - The Great Wave
+$jp-indigo: #1e3a5f;         // Deep wave blue
+$jp-indigo-dark: #0f1f33;    // Darkest blue
+$jp-indigo-light: #3d5a80;   // Lighter wave
+$jp-cream: #faf8f5;          // Paper/foam white
+$jp-warm-white: #f5f0e8;     // Warm paper
+$jp-ink: #1a1a1a;            // Sumi ink black
+$jp-ink-light: #4a4a4a;      // Diluted ink
+$jp-vermillion: #c41e3a;     // Seal red
+$jp-gold: #c9a227;           // Gold accent
+$jp-sky: #e8f0f5;            // Pale sky
+$jp-foam: #ffffff;           // Pure white foam
+
+// Typography
+$jp-font-heading: 'Georgia', 'Times New Roman', serif;
+$jp-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$jp-font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', monospace;
+
+// Spacing (Ma - 間)
+$jp-space-xs: 0.5rem;
+$jp-space-sm: 1rem;
+$jp-space-md: 2rem;
+$jp-space-lg: 4rem;
+$jp-space-xl: 6rem;
+
+// Base Reset
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $jp-font-body;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: $jp-ink;
+  background: $jp-cream;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ================================================
+// LAYOUT
+// ================================================
+.jp-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $jp-space-md;
+}
+
+// ================================================
+// HEADER
+// ================================================
+.jp-header {
+  padding: $jp-space-lg 0 $jp-space-md;
+  text-align: center;
+  border-bottom: 1px solid rgba($jp-indigo, 0.1);
+  margin-bottom: $jp-space-lg;
+}
+
+.jp-site-title {
+  font-family: $jp-font-heading;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $jp-indigo-dark;
+  margin: 0 0 $jp-space-xs;
+  letter-spacing: 0.05em;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $jp-vermillion;
+    }
+  }
+}
+
+.jp-site-tagline {
+  font-size: 0.85rem;
+  color: $jp-ink-light;
+  margin: 0;
+  font-style: italic;
+}
+
+.jp-nav {
+  margin-top: $jp-space-md;
+  display: flex;
+  justify-content: center;
+  gap: $jp-space-md;
+}
+
+.jp-nav-link {
+  font-size: 0.85rem;
+  color: $jp-indigo;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-bottom-color: $jp-vermillion;
+  }
+}
+
+// ================================================
+// MAIN CONTENT
+// ================================================
+.jp-main {
+  padding-bottom: $jp-space-xl;
+}
+
+// ================================================
+// TYPOGRAPHY
+// ================================================
+h1, h2, h3, h4, h5, h6 {
+  font-family: $jp-font-heading;
+  font-weight: 400;
+  color: $jp-indigo-dark;
+  line-height: 1.3;
+  margin: $jp-space-md 0 $jp-space-sm;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid rgba($jp-indigo, 0.1); padding-bottom: $jp-space-xs; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin: 0 0 $jp-space-sm;
+}
+
+a {
+  color: $jp-indigo;
+  text-decoration: none;
+  border-bottom: 1px solid rgba($jp-indigo, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $jp-vermillion;
+    border-bottom-color: $jp-vermillion;
+  }
+}
+
+strong, b {
+  font-weight: 600;
+  color: $jp-ink;
+}
+
+em, i {
+  font-style: italic;
+}
+
+blockquote {
+  margin: $jp-space-md 0;
+  padding: $jp-space-sm $jp-space-md;
+  border-left: 3px solid $jp-indigo;
+  background: $jp-warm-white;
+  font-style: italic;
+  color: $jp-ink-light;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+code {
+  font-family: $jp-font-mono;
+  font-size: 0.85em;
+  background: $jp-warm-white;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  border: 1px solid rgba($jp-indigo, 0.1);
+}
+
+pre {
+  background: $jp-indigo-dark;
+  color: $jp-cream;
+  padding: $jp-space-sm;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: $jp-space-md 0;
+
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba($jp-indigo, 0.2) 20%,
+    rgba($jp-indigo, 0.2) 80%,
+    transparent
+  );
+  margin: $jp-space-lg 0;
+}
+
+ul, ol {
+  margin: 0 0 $jp-space-sm;
+  padding-left: $jp-space-md;
+}
+
+li {
+  margin-bottom: $jp-space-xs;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+// ================================================
+// POSTS LIST (Homepage)
+// ================================================
+.jp-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jp-post-item {
+  margin-bottom: $jp-space-lg;
+  padding-bottom: $jp-space-lg;
+  border-bottom: 1px solid rgba($jp-indigo, 0.08);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.jp-post-title {
+  font-family: $jp-font-heading;
+  font-size: 1.4rem;
+  margin: 0 0 $jp-space-xs;
+
+  a {
+    color: $jp-indigo-dark;
+    border-bottom: none;
+
+    &:hover {
+      color: $jp-vermillion;
+    }
+  }
+}
+
+.jp-post-date {
+  font-size: 0.8rem;
+  color: $jp-ink-light;
+  margin-bottom: $jp-space-sm;
+  display: block;
+}
+
+.jp-post-excerpt {
+  color: $jp-ink-light;
+  line-height: 1.6;
+}
+
+.jp-read-more {
+  display: inline-block;
+  margin-top: $jp-space-sm;
+  font-size: 0.85rem;
+  color: $jp-indigo;
+  border-bottom: 1px solid $jp-indigo;
+
+  &:hover {
+    color: $jp-vermillion;
+    border-bottom-color: $jp-vermillion;
+  }
+}
+
+// ================================================
+// SINGLE POST
+// ================================================
+.jp-post-header {
+  text-align: center;
+  margin-bottom: $jp-space-lg;
+  padding-bottom: $jp-space-md;
+  border-bottom: 1px solid rgba($jp-indigo, 0.1);
+}
+
+.jp-post-header .jp-post-title {
+  font-size: 2rem;
+  margin-bottom: $jp-space-xs;
+}
+
+.jp-post-content {
+  // Already styled by base typography
+}
+
+// ================================================
+// FOOTER
+// ================================================
+.jp-footer {
+  text-align: center;
+  padding: $jp-space-lg 0;
+  margin-top: $jp-space-lg;
+  border-top: 1px solid rgba($jp-indigo, 0.1);
+  color: $jp-ink-light;
+  font-size: 0.8rem;
+}
+
+.jp-footer-wave {
+  display: block;
+  margin-bottom: $jp-space-sm;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+// ================================================
+// DECORATIVE ELEMENTS
+// ================================================
+
+// Vermillion seal/stamp accent
+.jp-seal {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background: $jp-vermillion;
+  border-radius: 2px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(white, 0.5);
+  }
+}
+
+// Wave decoration
+.jp-wave-divider {
+  text-align: center;
+  margin: $jp-space-lg 0;
+  color: $jp-indigo-light;
+  opacity: 0.4;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+}
+
+// ================================================
+// SELECTION
+// ================================================
+::selection {
+  background: rgba($jp-indigo, 0.2);
+  color: $jp-ink;
+}
+
+// ================================================
+// SCROLLBAR (Webkit)
+// ================================================
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $jp-warm-white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba($jp-indigo, 0.3);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba($jp-indigo, 0.5);
+  }
+}
+
+// ================================================
+// RESPONSIVE
+// ================================================
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .jp-container {
+    padding: $jp-space-sm;
+  }
+
+  .jp-header {
+    padding: $jp-space-md 0;
+  }
+
+  .jp-nav {
+    gap: $jp-space-sm;
+  }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+}
+
+// ================================================
+// UTILITIES
+// ================================================
+.jp-text-center { text-align: center; }
+.jp-text-muted { color: $jp-ink-light; }
+.jp-mt-0 { margin-top: 0; }
+.jp-mb-0 { margin-bottom: 0; }
