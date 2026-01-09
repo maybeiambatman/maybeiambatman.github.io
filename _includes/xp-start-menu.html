@@ -101,19 +101,46 @@
 
   <!-- Footer -->
   <div class="xp-start-footer">
-    <button class="xp-start-footer-btn" onclick="location.href='{{ site.baseurl }}/about'">
+    <button class="xp-start-footer-btn" onclick="xpLogOff()">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="10" fill="#ff6b00" stroke="#cc5500"/>
-        <path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2"/>
+        <path d="M8 12h8M12 8l4 4-4 4" stroke="#fff" stroke-width="2" fill="none"/>
       </svg>
       Log Off
     </button>
-    <button class="xp-start-footer-btn" onclick="location.href='{{ site.baseurl }}/'">
+    <button class="xp-start-footer-btn" onclick="xpShowShutdownDialog()">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="10" fill="#ff0000" stroke="#cc0000"/>
         <rect x="8" y="10" width="8" height="4" fill="#fff"/>
       </svg>
       Turn Off Computer
     </button>
+  </div>
+</div>
+
+<!-- Shutdown Dialog -->
+<div class="xp-shutdown-overlay" id="xp-shutdown-overlay">
+  <div class="xp-shutdown-dialog">
+    <div class="xp-shutdown-titlebar">
+      <svg width="16" height="16" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="6" fill="#ff0000" stroke="#cc0000"/>
+        <rect x="5" y="7" width="6" height="2" fill="#fff"/>
+      </svg>
+      <span class="xp-shutdown-titlebar-text">Shut Down Windows</span>
+    </div>
+    <div class="xp-shutdown-body">
+      <svg class="xp-shutdown-icon" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20" fill="#3c6eb4" stroke="#1e3a5f" stroke-width="2"/>
+        <circle cx="24" cy="24" r="8" fill="none" stroke="#fff" stroke-width="3"/>
+        <rect x="22" y="8" width="4" height="12" fill="#fff"/>
+      </svg>
+      <div class="xp-shutdown-message">
+        Are you sure you want to turn off this computer?
+      </div>
+    </div>
+    <div class="xp-shutdown-buttons">
+      <button class="xp-dialog-btn" onclick="xpTurnOffComputer()">Turn Off</button>
+      <button class="xp-dialog-btn" onclick="xpHideShutdownDialog()">Cancel</button>
+    </div>
   </div>
 </div>
