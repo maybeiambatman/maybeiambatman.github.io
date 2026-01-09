@@ -49,17 +49,4 @@
     <span class="xp-icon-label">{{ post.title | truncate: 20 }}</span>
   </a>
   {% endfor %}
-
-  <!-- RSS Feed (Internet Explorer style) -->
-  <a href="{{ site.baseurl }}/feed.xml" class="xp-icon" ondblclick="location.href='{{ site.baseurl }}/feed.xml'" title="RSS Feed">
-    <div class="xp-icon-image">
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="4" width="40" height="40" rx="6" fill="#ff8800"/>
-        <circle cx="12" cy="36" r="5" fill="#fff"/>
-        <path d="M12 24c6.6 0 12 5.4 12 12" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <path d="M12 12c13.2 0 24 10.8 24 24" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="xp-icon-label">RSS Feed</span>
-  </a>
 </div>
