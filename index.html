@@ -1,21 +1,17 @@
----
-layout: default
-title: Blog
----
-
-<ul class="jp-posts">
-  {% for post in site.posts %}
-    <li class="jp-post-item">
-      <h2 class="jp-post-title">
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-      </h2>
-      <span class="jp-post-date">{{ post.date | date: "%B %e, %Y" }}</span>
-
-      <p class="jp-post-excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 40 }}
-      </p>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="jp-read-more">Continue reading →</a>
-    </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="I engineer software" />
+    <meta name="author" content="Mohd Irteza" />
+    <title>mohd irteza</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
