@@ -1,24 +1,19 @@
-// Japanese Art Theme - Inspired by Hokusai, Sumi-e & Watercolor
+// Japanese Art Theme - Inspired by Hokusai's "The Great Wave"
 // ==============================================================
 
-// Color Palette - The Great Wave + Watercolor
-$jp-indigo: #1e3a5f;         // Deep wave blue
-$jp-indigo-dark: #0f1f33;    // Darkest blue
-$jp-indigo-light: #3d5a80;   // Lighter wave
-$jp-cream: #faf8f5;          // Paper/foam white
-$jp-warm-white: #f5f0e8;     // Warm paper
-$jp-ink: #1a1a1a;            // Sumi ink black
-$jp-ink-light: #5a5a5a;      // Diluted ink
-$jp-vermillion: #c41e3a;     // Seal red
-$jp-gold: #c9a227;           // Gold accent
-$jp-sky: #e8f0f5;            // Pale sky
-$jp-foam: #ffffff;           // Pure white foam
-
-// Watercolor accent colors
-$jp-water-blue: #6b9ac4;     // Soft water blue
-$jp-water-teal: #5d9a8d;     // Soft teal
-$jp-water-blush: #e8d4d4;    // Soft pink wash
-$jp-water-gold: #f0e6c8;     // Soft gold wash
+// Color Palette - Matched to the actual woodblock print
+$jp-indigo: #1e4d7b;         // Prussian blue (the wave)
+$jp-indigo-dark: #0d2840;    // Deepest wave shadow
+$jp-indigo-light: #4a7ba7;   // Lighter wave highlights
+$jp-parchment: #e8dcc8;      // Aged paper background
+$jp-parchment-light: #f2e9dc; // Lighter parchment
+$jp-parchment-dark: #d4c4a8; // Darker aged spots
+$jp-ink: #2c2416;            // Warm black ink
+$jp-ink-light: #6b5d4d;      // Faded ink
+$jp-vermillion: #c23a3a;     // Seal red (hanko)
+$jp-gold: #b8860b;           // Gold accent
+$jp-foam: #f5f2eb;           // Wave foam white
+$jp-sky: #c9d4dc;            // Pale sky behind Fuji
 
 // Typography
 $jp-font-heading: 'Georgia', 'Times New Roman', serif;
@@ -49,16 +44,35 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   color: $jp-ink;
-  background: $jp-cream;
-  // Subtle watercolor wash effect on body
+  background-color: $jp-parchment;
+  // Parchment texture effect - subtle variations like aged paper
   background-image:
-    radial-gradient(ellipse at 0% 0%, rgba($jp-water-blue, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 100%, rgba($jp-water-teal, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba($jp-water-gold, 0.04) 0%, transparent 70%);
+    // Subtle grain/noise effect
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"),
+    // Aged paper variation - darker edges and spots
+    radial-gradient(ellipse at 20% 80%, rgba(180, 160, 130, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(180, 160, 130, 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 250, 240, 0.3) 0%, transparent 70%);
+  background-blend-mode: soft-light, normal, normal, normal;
   background-attachment: fixed;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// ================================================
+// WAVE SVG PATTERNS
+// ================================================
+
+// Hokusai wave SVG (simplified stylized version)
+.jp-wave-decoration {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0,30 Q50,10 100,30 T200,30 T300,30 T400,30 T500,30 T600,30 T700,30 T800,30 T900,30 T1000,30 T1100,30 T1200,30' fill='none' stroke='%231e4d7b' stroke-width='2' opacity='0.3'/%3E%3Cpath d='M0,35 Q50,15 100,35 T200,35 T300,35 T400,35 T500,35 T600,35 T700,35 T800,35 T900,35 T1000,35 T1100,35 T1200,35' fill='none' stroke='%231e4d7b' stroke-width='1.5' opacity='0.2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.8;
 }
 
 // ================================================
@@ -79,25 +93,19 @@ body {
   margin-bottom: $jp-space-lg;
   position: relative;
 
-  // Watercolor wash under header
+  // Wave decoration under header
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba($jp-water-blue, 0.4) 20%,
-      rgba($jp-indigo, 0.3) 50%,
-      rgba($jp-water-teal, 0.4) 80%,
-      transparent
-    );
-    border-radius: 50%;
-    filter: blur(1px);
+    width: 300px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 30'%3E%3Cpath d='M0,15 C20,5 40,5 60,15 C80,25 100,25 120,15 C140,5 160,5 180,15 C200,25 220,25 240,15 C260,5 280,5 300,15' fill='none' stroke='%231e4d7b' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='60' cy='8' r='2' fill='%231e4d7b' opacity='0.5'/%3E%3Ccircle cx='120' cy='22' r='1.5' fill='%231e4d7b' opacity='0.4'/%3E%3Ccircle cx='180' cy='8' r='2' fill='%231e4d7b' opacity='0.5'/%3E%3Ccircle cx='240' cy='22' r='1.5' fill='%231e4d7b' opacity='0.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
   }
 }
 
@@ -172,21 +180,17 @@ h2 {
   padding-bottom: $jp-space-xs;
   position: relative;
 
-  // Watercolor underline effect
+  // Wave curl underline
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      rgba($jp-vermillion, 0.6),
-      rgba($jp-water-blue, 0.4),
-      transparent
-    );
-    border-radius: 1px;
+    width: 80px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 12'%3E%3Cpath d='M0,6 Q10,2 20,6 T40,6 T60,6 T80,6' fill='none' stroke='%231e4d7b' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='4' r='1.5' fill='%23f5f2eb'/%3E%3Ccircle cx='35' cy='4' r='1' fill='%23f5f2eb'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    opacity: 0.7;
   }
 }
 h3 { font-size: 1.25rem; }
@@ -220,15 +224,23 @@ em, i {
 blockquote {
   margin: $jp-space-md 0;
   padding: $jp-space-sm $jp-space-md;
-  border-left: 3px solid $jp-vermillion;
-  background: linear-gradient(
-    135deg,
-    rgba($jp-water-blush, 0.3),
-    rgba($jp-warm-white, 0.8)
-  );
+  border-left: 3px solid $jp-indigo;
+  background: rgba($jp-foam, 0.5);
   font-style: italic;
   color: $jp-ink-light;
-  border-radius: 0 4px 4px 0;
+  position: relative;
+
+  // Small wave accent
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 40px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Cpath d='M5,10 Q15,2 25,10 Q35,18 40,10' fill='none' stroke='%231e4d7b' stroke-width='1.5' opacity='0.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+  }
 
   p:last-child {
     margin-bottom: 0;
@@ -238,7 +250,7 @@ blockquote {
 code {
   font-family: $jp-font-mono;
   font-size: 0.85em;
-  background: $jp-warm-white;
+  background: $jp-parchment-light;
   padding: 0.15em 0.4em;
   border-radius: 3px;
   border: 1px solid rgba($jp-indigo, 0.1);
@@ -246,11 +258,24 @@ code {
 
 pre {
   background: $jp-indigo-dark;
-  color: $jp-cream;
+  color: $jp-parchment-light;
   padding: $jp-space-sm;
   border-radius: 4px;
   overflow-x: auto;
   margin: $jp-space-md 0;
+  position: relative;
+
+  // Foam spray decoration in corner
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Ccircle cx='50' cy='10' r='3' fill='%23f5f2eb' opacity='0.15'/%3E%3Ccircle cx='42' cy='6' r='2' fill='%23f5f2eb' opacity='0.1'/%3E%3Ccircle cx='55' cy='18' r='2' fill='%23f5f2eb' opacity='0.1'/%3E%3Ccircle cx='45' cy='15' r='1.5' fill='%23f5f2eb' opacity='0.08'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+  }
 
   code {
     background: none;
@@ -262,17 +287,11 @@ pre {
 
 hr {
   border: none;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba($jp-water-blue, 0.3) 15%,
-    rgba($jp-indigo, 0.2) 50%,
-    rgba($jp-water-teal, 0.3) 85%,
-    transparent
-  );
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 30'%3E%3Cpath d='M0,15 Q25,5 50,15 T100,15 T150,15 T200,15 T250,15 T300,15 T350,15 T400,15' fill='none' stroke='%231e4d7b' stroke-width='1.5' opacity='0.4'/%3E%3Ccircle cx='100' cy='10' r='2' fill='%23f5f2eb'/%3E%3Ccircle cx='200' cy='10' r='2.5' fill='%23f5f2eb'/%3E%3Ccircle cx='300' cy='10' r='2' fill='%23f5f2eb'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
   margin: $jp-space-lg 0;
-  border-radius: 1px;
 }
 
 ul, ol {
@@ -304,22 +323,18 @@ img {
   padding-bottom: $jp-space-lg;
   position: relative;
 
-  // Watercolor divider
+  // Wave divider between posts
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba($jp-water-blue, 0.3) 20%,
-      rgba($jp-indigo, 0.15) 50%,
-      rgba($jp-water-teal, 0.3) 80%,
-      transparent
-    );
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20'%3E%3Cpath d='M0,10 Q25,3 50,10 T100,10 T150,10 T200,10' fill='none' stroke='%231e4d7b' stroke-width='1.5' opacity='0.3'/%3E%3Ccircle cx='50' cy='6' r='1.5' fill='%23f5f2eb'/%3E%3Ccircle cx='100' cy='6' r='2' fill='%23f5f2eb'/%3E%3Ccircle cx='150' cy='6' r='1.5' fill='%23f5f2eb'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   &:last-child::after {
@@ -382,24 +397,19 @@ img {
   padding-bottom: $jp-space-md;
   position: relative;
 
-  // Watercolor accent
+  // Large wave decoration under post title
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba($jp-vermillion, 0.5) 30%,
-      rgba($jp-water-blue, 0.4) 70%,
-      transparent
-    );
-    border-radius: 2px;
-    filter: blur(0.5px);
+    width: 180px;
+    height: 25px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 25'%3E%3Cpath d='M10,15 Q30,5 50,12 Q70,20 90,12 Q110,5 130,12 Q150,20 170,12' fill='none' stroke='%231e4d7b' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M20,18 Q35,12 50,16' fill='none' stroke='%231e4d7b' stroke-width='1' opacity='0.5'/%3E%3Ccircle cx='45' cy='8' r='2.5' fill='%23f5f2eb'/%3E%3Ccircle cx='90' cy='6' r='3' fill='%23f5f2eb'/%3E%3Ccircle cx='135' cy='8' r='2.5' fill='%23f5f2eb'/%3E%3Ccircle cx='55' cy='10' r='1.5' fill='%23f5f2eb' opacity='0.7'/%3E%3Ccircle cx='125' cy='10' r='1.5' fill='%23f5f2eb' opacity='0.7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
   }
 }
 
@@ -428,23 +438,18 @@ img {
   color: $jp-ink-light;
   font-size: 0.8rem;
 
-  // Watercolor top border
+  // Large wave decoration at top of footer
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba($jp-water-teal, 0.3) 20%,
-      rgba($jp-indigo, 0.2) 50%,
-      rgba($jp-water-blue, 0.3) 80%,
-      transparent
-    );
+    width: 400px;
+    height: 35px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 35'%3E%3Cpath d='M0,20 Q50,8 100,18 Q150,28 200,18 Q250,8 300,18 Q350,28 400,18' fill='none' stroke='%231e4d7b' stroke-width='2' opacity='0.3'/%3E%3Cpath d='M50,22 Q75,16 100,20' fill='none' stroke='%231e4d7b' stroke-width='1' opacity='0.2'/%3E%3Cpath d='M250,22 Q275,16 300,20' fill='none' stroke='%231e4d7b' stroke-width='1' opacity='0.2'/%3E%3Ccircle cx='100' cy='12' r='2' fill='%23f5f2eb' opacity='0.6'/%3E%3Ccircle cx='200' cy='12' r='2.5' fill='%23f5f2eb' opacity='0.6'/%3E%3Ccircle cx='300' cy='12' r='2' fill='%23f5f2eb' opacity='0.6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
@@ -453,14 +458,14 @@ img {
   margin-bottom: $jp-space-sm;
   font-size: 1.5rem;
   opacity: 0.4;
-  color: $jp-water-blue;
+  color: $jp-indigo;
 }
 
 // ================================================
 // DECORATIVE ELEMENTS
 // ================================================
 
-// Vermillion seal/stamp accent
+// Vermillion seal/stamp accent (hanko)
 .jp-seal {
   display: inline-block;
   width: 2rem;
@@ -477,21 +482,31 @@ img {
   }
 }
 
-// Wave decoration
+// Wave divider (text-based fallback)
 .jp-wave-divider {
   text-align: center;
   margin: $jp-space-lg 0;
-  color: $jp-water-blue;
-  opacity: 0.5;
-  font-size: 1.2rem;
-  letter-spacing: 0.5em;
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 30'%3E%3Cpath d='M0,15 Q20,5 40,15 T80,15 T120,15 T150,15' fill='none' stroke='%231e4d7b' stroke-width='2' opacity='0.4'/%3E%3Ccircle cx='40' cy='9' r='2' fill='%23f5f2eb'/%3E%3Ccircle cx='80' cy='9' r='2.5' fill='%23f5f2eb'/%3E%3Ccircle cx='120' cy='9' r='2' fill='%23f5f2eb'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// Mount Fuji tiny accent (optional decorative element)
+.jp-fuji {
+  display: inline-block;
+  width: 40px;
+  height: 25px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 25'%3E%3Cpath d='M5,25 L20,5 L35,25 Z' fill='%231e4d7b' opacity='0.3'/%3E%3Cpath d='M12,12 L20,5 L28,12 Z' fill='%23f5f2eb' opacity='0.8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 // ================================================
 // SELECTION
 // ================================================
 ::selection {
-  background: rgba($jp-water-blue, 0.25);
+  background: rgba($jp-indigo, 0.2);
   color: $jp-ink;
 }
 
@@ -504,15 +519,15 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: $jp-warm-white;
+  background: $jp-parchment;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba($jp-indigo, 0.25);
+  background: rgba($jp-indigo, 0.3);
   border-radius: 4px;
 
   &:hover {
-    background: rgba($jp-indigo, 0.4);
+    background: rgba($jp-indigo, 0.5);
   }
 }
 
@@ -530,6 +545,10 @@ img {
 
   .jp-header {
     padding: $jp-space-md 0;
+
+    &::after {
+      width: 200px;
+    }
   }
 
   .jp-nav {
@@ -538,6 +557,10 @@ img {
 
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.3rem; }
+
+  .jp-footer::before {
+    width: 280px;
+  }
 }
 
 // ================================================
