@@ -1,18 +1,20 @@
 ---
 layout: default
+title: Blog
 ---
 
-<div class="posts">
+<div class="xp-post-list">
   {% for post in site.posts %}
-    <article class="post">
+    <div class="xp-post-item">
+      <div class="xp-post-title">
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      </div>
 
-      <h1 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
+      <div class="xp-post-excerpt">
         {{ post.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="xp-read-more">Read More</a>
+    </div>
   {% endfor %}
 </div>

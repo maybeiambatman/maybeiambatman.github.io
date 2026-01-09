@@ -1,0 +1,1115 @@
+// Windows XP Luna Theme for Jekyll Blog
+// ========================================
+
+// Design Tokens
+$xp-primary-blue-start: #0058e3;
+$xp-primary-blue-end: #3d95ff;
+$xp-inactive-blue-start: #7b9ed8;
+$xp-inactive-blue-end: #9ebbe7;
+$xp-start-green: #3c903c;
+$xp-start-green-active: #1a4a1a;
+$xp-window-bg: #ece9d8;
+$xp-system-tray: #0996f1;
+$xp-taskbar-bg: linear-gradient(180deg, #3168d5 0%, #4993e6 3%, #2157d7 6%, #2663e0 10%, #1941a5 90%, #1941a5 93%, #1845ab 96%, #1845ab 100%);
+$xp-desktop-bg: #3a6ea5;
+$xp-title-text: #fff;
+$xp-button-face: #ece9d8;
+$xp-button-highlight: #fff;
+$xp-button-shadow: #aca899;
+$xp-button-dark-shadow: #716f64;
+$xp-scrollbar-track: #ece9d8;
+$xp-scrollbar-thumb: #c8c7c4;
+$xp-link-blue: #0066cc;
+
+// Fonts
+$xp-font-family: 'Tahoma', 'Segoe UI', 'Arial', sans-serif;
+$xp-font-size: 11px;
+
+// Reset body for XP desktop
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: $xp-font-family;
+  font-size: $xp-font-size;
+}
+
+// ========================================
+// DESKTOP
+// ========================================
+.xp-desktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $xp-desktop-bg;
+  background-image:
+    radial-gradient(ellipse at bottom, #5b9bd5 0%, #3a6ea5 70%);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.xp-desktop-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+}
+
+// ========================================
+// DESKTOP ICONS
+// ========================================
+.xp-desktop-icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 20px;
+  max-height: calc(100vh - 60px);
+  padding: 10px;
+}
+
+.xp-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(11, 97, 255, 0.2);
+  }
+
+  &:focus, &.selected {
+    background: rgba(11, 97, 255, 0.4);
+    outline: 1px dotted #fff;
+    outline-offset: -1px;
+  }
+}
+
+.xp-icon-image {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+  }
+}
+
+.xp-icon-label {
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  word-wrap: break-word;
+  max-width: 70px;
+  line-height: 1.3;
+}
+
+// ========================================
+// WINDOW
+// ========================================
+.xp-window {
+  position: absolute;
+  background: $xp-window-bg;
+  border: 1px solid #0054e3;
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    2px 2px 10px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 200px;
+  overflow: hidden;
+
+  // Default positioning (can be overridden)
+  top: 50px;
+  left: 100px;
+  width: calc(100% - 200px);
+  height: calc(100% - 120px);
+  max-width: 900px;
+
+  &.minimized {
+    display: none;
+  }
+
+  &.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100% - 40px) !important;
+    max-width: none !important;
+    border-radius: 0;
+  }
+}
+
+// Title Bar
+.xp-titlebar {
+  background: linear-gradient(180deg,
+    #0997ff 0%,
+    #0053ee 8%,
+    #0050ee 40%,
+    #0050ee 88%,
+    #0846b8 93%,
+    #06379f 95%,
+    #043897 100%
+  );
+  padding: 3px 5px 3px 3px;
+  display: flex;
+  align-items: center;
+  min-height: 26px;
+  border-radius: 7px 7px 0 0;
+  cursor: default;
+
+  .inactive & {
+    background: linear-gradient(180deg,
+      #8eb4e6 0%,
+      #7aa3dc 8%,
+      #7fa4dd 40%,
+      #7fa4dd 88%,
+      #6d94ce 93%,
+      #5d84be 95%,
+      #5580ba 100%
+    );
+  }
+}
+
+.xp-titlebar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  margin-left: 2px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.xp-titlebar-text {
+  flex: 1;
+  color: $xp-title-text;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 2px;
+
+  .inactive & {
+    color: #d4e7ff;
+  }
+}
+
+.xp-titlebar-buttons {
+  display: flex;
+  gap: 2px;
+  margin-left: 4px;
+}
+
+.xp-titlebar-btn {
+  width: 21px;
+  height: 21px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Webdings', sans-serif;
+  font-size: 9px;
+  color: #fff;
+
+  &.minimize {
+    background: linear-gradient(180deg, #3c8df4 0%, #1151cf 50%, #0f4ac4 100%);
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3), inset -1px -1px 0 rgba(0,0,0,0.2);
+
+    &::before {
+      content: '';
+      width: 8px;
+      height: 2px;
+      background: #fff;
+      margin-top: 6px;
+      box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+
+    &:hover {
+      background: linear-gradient(180deg, #4ca0ff 0%, #2060df 50%, #1858d4 100%);
+    }
+
+    &:active {
+      background: linear-gradient(180deg, #2c70d4 0%, #0040af 50%, #0038a4 100%);
+    }
+  }
+
+  &.maximize {
+    background: linear-gradient(180deg, #3c8df4 0%, #1151cf 50%, #0f4ac4 100%);
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3), inset -1px -1px 0 rgba(0,0,0,0.2);
+
+    &::before {
+      content: '';
+      width: 9px;
+      height: 7px;
+      border: 2px solid #fff;
+      border-top-width: 3px;
+      box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+
+    &:hover {
+      background: linear-gradient(180deg, #4ca0ff 0%, #2060df 50%, #1858d4 100%);
+    }
+
+    &:active {
+      background: linear-gradient(180deg, #2c70d4 0%, #0040af 50%, #0038a4 100%);
+    }
+  }
+
+  &.close {
+    background: linear-gradient(180deg, #e97c6c 0%, #cf4332 50%, #c23523 100%);
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3), inset -1px -1px 0 rgba(0,0,0,0.2);
+    position: relative;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background: #fff;
+      box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      background: linear-gradient(180deg, #f09c8c 0%, #df5342 50%, #d24533 100%);
+    }
+
+    &:active {
+      background: linear-gradient(180deg, #b96c5c 0%, #af3322 50%, #a22513 100%);
+    }
+  }
+}
+
+// Toolbar / Address Bar
+.xp-toolbar {
+  background: $xp-window-bg;
+  border-bottom: 1px solid #b9b6ad;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.xp-address-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: #fff;
+  border: 1px solid #7f9db9;
+  border-radius: 0;
+  padding: 2px 4px;
+  gap: 4px;
+}
+
+.xp-address-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.xp-address-text {
+  flex: 1;
+  font-size: 11px;
+  color: #000;
+  border: none;
+  background: transparent;
+  padding: 2px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.xp-toolbar-btn {
+  background: $xp-button-face;
+  border: 1px solid transparent;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    border-color: $xp-button-highlight $xp-button-shadow $xp-button-shadow $xp-button-highlight;
+  }
+
+  &:active {
+    border-color: $xp-button-shadow $xp-button-highlight $xp-button-highlight $xp-button-shadow;
+  }
+}
+
+// Window Content
+.xp-window-content {
+  flex: 1;
+  overflow: auto;
+  background: #fff;
+  margin: 2px;
+  border: 1px solid #96969b;
+  border-top-color: #808080;
+  border-left-color: #808080;
+}
+
+.xp-content-inner {
+  padding: 16px 20px;
+  color: #000;
+  font-family: $xp-font-family;
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 800px;
+
+  // Typography within window
+  h1 {
+    font-size: 24px;
+    color: #003399;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: #003399;
+    margin: 24px 0 12px 0;
+  }
+
+  h3 {
+    font-size: 14px;
+    color: #003399;
+    margin: 20px 0 10px 0;
+  }
+
+  p {
+    margin: 12px 0;
+  }
+
+  a {
+    color: $xp-link-blue;
+    text-decoration: underline;
+
+    &:hover {
+      color: #cc0000;
+    }
+
+    &:visited {
+      color: #800080;
+    }
+  }
+
+  ul, ol {
+    margin: 12px 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 4px 0;
+  }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-left: 4px solid #0066cc;
+    font-style: italic;
+  }
+
+  code {
+    font-family: 'Courier New', Courier, monospace;
+    background: #f0f0f0;
+    padding: 2px 4px;
+    font-size: 11px;
+    border: 1px solid #ddd;
+  }
+
+  pre {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 16px 0;
+
+    code {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 16px 0;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  th {
+    background: $xp-window-bg;
+  }
+}
+
+// Status Bar
+.xp-statusbar {
+  background: $xp-window-bg;
+  border-top: 1px solid #fff;
+  padding: 2px 4px;
+  font-size: 11px;
+  color: #000;
+  display: flex;
+
+  .xp-status-section {
+    flex: 1;
+    padding: 0 8px;
+    border-right: 1px solid #808080;
+
+    &:last-child {
+      border-right: none;
+      flex: 0;
+    }
+  }
+}
+
+// ========================================
+// TASKBAR
+// ========================================
+.xp-taskbar {
+  height: 30px;
+  background: $xp-taskbar-bg;
+  display: flex;
+  align-items: stretch;
+  padding: 2px 2px 0 2px;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+.xp-start-btn {
+  background: linear-gradient(180deg,
+    #5cb85c 0%,
+    #3c9a3c 10%,
+    #2f7e2f 45%,
+    #2f7e2f 55%,
+    #256125 90%,
+    #1e4f1e 100%
+  );
+  border: none;
+  border-radius: 0 8px 8px 0;
+  padding: 0 12px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  font-style: italic;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+  box-shadow:
+    inset 1px 0 1px rgba(255,255,255,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.3),
+    1px 0 1px rgba(0,0,0,0.2);
+  margin-right: 6px;
+
+  &:hover {
+    background: linear-gradient(180deg,
+      #6cc86c 0%,
+      #4caa4c 10%,
+      #3f8e3f 45%,
+      #3f8e3f 55%,
+      #357135 90%,
+      #2e5f2e 100%
+    );
+  }
+
+  &:active, &.active {
+    background: linear-gradient(180deg,
+      #4ca84c 0%,
+      #2c7a2c 10%,
+      #1f6e1f 45%,
+      #1f6e1f 55%,
+      #155115 90%,
+      #0e3f0e 100%
+    );
+  }
+}
+
+.xp-start-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.xp-quick-launch {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  border-right: 1px solid rgba(0,0,0,0.2);
+  border-left: 1px solid rgba(255,255,255,0.1);
+  margin-right: 4px;
+  gap: 2px;
+}
+
+.xp-quick-launch-btn {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3) rgba(0,0,0,0.2) rgba(0,0,0,0.2) rgba(255,255,255,0.3);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.xp-taskbar-items {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+  padding: 0 4px;
+  overflow: hidden;
+}
+
+.xp-taskbar-item {
+  background: linear-gradient(180deg,
+    #3c8df4 0%,
+    #2c6cd4 30%,
+    #2160c8 70%,
+    #1954b8 100%
+  );
+  border: none;
+  border-radius: 2px;
+  padding: 2px 8px;
+  min-width: 120px;
+  max-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 11px;
+  text-align: left;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.3),
+    inset -1px -1px 0 rgba(0,0,0,0.1);
+  text-decoration: none;
+
+  &:hover {
+    background: linear-gradient(180deg,
+      #4c9dff 0%,
+      #3c7ce4 30%,
+      #3170d8 70%,
+      #2964c8 100%
+    );
+  }
+
+  &.active {
+    background: linear-gradient(180deg,
+      #1c4da4 0%,
+      #1845a0 30%,
+      #16409c 70%,
+      #143894 100%
+    );
+    box-shadow:
+      inset -1px -1px 0 rgba(255,255,255,0.2),
+      inset 1px 1px 0 rgba(0,0,0,0.2);
+  }
+
+  .xp-taskbar-item-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .xp-taskbar-item-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.xp-system-tray {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg,
+    #0f8dec 0%,
+    #0978d4 30%,
+    #0870cc 70%,
+    #0668c0 100%
+  );
+  padding: 0 8px;
+  border-radius: 2px;
+  margin-left: auto;
+  box-shadow:
+    inset 1px 0 1px rgba(0,0,0,0.2),
+    inset 0 1px 1px rgba(255,255,255,0.1);
+  gap: 8px;
+}
+
+.xp-tray-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.xp-tray-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.xp-clock {
+  color: #fff;
+  font-size: 11px;
+  padding: 0 4px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+// ========================================
+// START MENU
+// ========================================
+.xp-start-menu {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 380px;
+  background: #fff;
+  border: 2px solid #0054e3;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+
+  &.open {
+    display: flex;
+  }
+}
+
+.xp-start-header {
+  background: linear-gradient(180deg,
+    #1f5fc9 0%,
+    #254ead 50%,
+    #1f4a99 100%
+  );
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 3px 3px 0 0;
+}
+
+.xp-user-avatar {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #d4d4d4;
+  border-radius: 3px;
+  background: #fff;
+  object-fit: cover;
+}
+
+.xp-user-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.xp-start-body {
+  display: flex;
+  flex: 1;
+}
+
+.xp-start-left {
+  flex: 1;
+  background: #fff;
+  padding: 4px 0;
+  border-right: 1px solid #d4d4d4;
+}
+
+.xp-start-right {
+  width: 190px;
+  background: linear-gradient(180deg, #7da5d6 0%, #6991c2 100%);
+  padding: 6px;
+}
+
+.xp-start-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  font-size: 11px;
+
+  &:hover {
+    background: #316ac5;
+    color: #fff;
+  }
+
+  .xp-start-item-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .xp-start-item-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .xp-start-item-title {
+    font-weight: bold;
+  }
+
+  .xp-start-item-desc {
+    font-size: 10px;
+    color: #666;
+  }
+
+  &:hover .xp-start-item-desc {
+    color: #ccc;
+  }
+}
+
+.xp-start-right .xp-start-item {
+  padding: 4px 6px;
+  border-radius: 3px;
+  color: #000;
+
+  .xp-start-item-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+}
+
+.xp-start-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #d4d4d4 20%, #d4d4d4 80%, transparent 100%);
+  margin: 4px 10px;
+}
+
+.xp-start-right .xp-start-separator {
+  background: rgba(255,255,255,0.3);
+  margin: 4px 0;
+}
+
+.xp-start-footer {
+  background: linear-gradient(180deg, #3d88d8 0%, #2968b8 100%);
+  padding: 6px 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #4a9aec;
+}
+
+.xp-start-footer-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// ========================================
+// XP-STYLE SCROLLBARS
+// ========================================
+.xp-window-content {
+  &::-webkit-scrollbar {
+    width: 17px;
+    height: 17px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $xp-scrollbar-track;
+    border-left: 1px solid #808080;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ebe8e0 0%, #d6d2c7 100%);
+    border: 1px solid #808080;
+    border-radius: 0;
+
+    &:hover {
+      background: linear-gradient(180deg, #f0ede5 0%, #dbd7cc 100%);
+    }
+
+    &:active {
+      background: linear-gradient(180deg, #dbd7cc 0%, #c6c2b7 100%);
+    }
+  }
+
+  &::-webkit-scrollbar-button {
+    background: $xp-scrollbar-track;
+    border: 1px solid #808080;
+    width: 17px;
+    height: 17px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: $xp-scrollbar-track;
+  }
+}
+
+// ========================================
+// XP-STYLE BUTTONS & INPUTS
+// ========================================
+.xp-button {
+  background: linear-gradient(180deg, #fff 0%, #ece9d8 90%, #d5d2c6 100%);
+  border: 1px solid;
+  border-color: #003c74;
+  border-radius: 3px;
+  padding: 4px 16px;
+  font-size: 11px;
+  font-family: $xp-font-family;
+  cursor: pointer;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #bfbcb0;
+
+  &:hover {
+    background: linear-gradient(180deg, #fff 0%, #f0ede5 90%, #e0ddd1 100%);
+  }
+
+  &:active {
+    background: linear-gradient(180deg, #e0ddd1 0%, #d5d2c6 90%, #cbc8bc 100%);
+    box-shadow:
+      inset -1px -1px 0 #fff,
+      inset 1px 1px 0 #bfbcb0;
+  }
+
+  &:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+  }
+}
+
+.xp-input {
+  border: 1px solid #7f9db9;
+  padding: 4px 6px;
+  font-size: 11px;
+  font-family: $xp-font-family;
+  background: #fff;
+
+  &:focus {
+    outline: none;
+    border-color: #3d7bad;
+  }
+}
+
+// ========================================
+// MOBILE RESPONSIVENESS
+// ========================================
+@media (max-width: 768px) {
+  .xp-desktop-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: none;
+    justify-content: center;
+  }
+
+  .xp-icon {
+    width: 65px;
+  }
+
+  .xp-window {
+    top: 10px !important;
+    left: 5px !important;
+    right: 5px;
+    width: calc(100% - 10px) !important;
+    height: calc(100% - 60px) !important;
+    max-width: none !important;
+  }
+
+  .xp-start-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .xp-start-body {
+    flex-direction: column;
+  }
+
+  .xp-start-right {
+    width: 100%;
+    border-top: 1px solid #4a9aec;
+  }
+
+  .xp-taskbar-items {
+    display: none;
+  }
+
+  .xp-taskbar-item {
+    min-width: auto;
+    max-width: none;
+
+    .xp-taskbar-item-text {
+      display: none;
+    }
+  }
+
+  .xp-quick-launch {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .xp-titlebar-text {
+    font-size: 11px;
+  }
+
+  .xp-icon-label {
+    font-size: 10px;
+  }
+
+  .xp-start-item .xp-start-item-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .xp-start-left .xp-start-item {
+    padding: 4px 8px;
+  }
+}
+
+// ========================================
+// HOMEPAGE SPECIFIC (POST LIST)
+// ========================================
+.xp-post-list {
+  .xp-post-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .xp-post-title {
+    font-size: 16px;
+    font-weight: bold;
+
+    a {
+      color: #003399;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .xp-post-excerpt {
+    margin-top: 8px;
+    color: #333;
+    font-size: 12px;
+  }
+
+  .xp-read-more {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #0066cc;
+    text-decoration: underline;
+
+    &:hover {
+      color: #cc0000;
+    }
+  }
+}
+
+// Date styling
+.xp-post-date {
+  color: #666;
+  font-size: 11px;
+  font-style: italic;
+  margin-top: 12px;
+}
+
+// ========================================
+// UTILITY CLASSES
+// ========================================
+.xp-hidden {
+  display: none !important;
+}
+
+.xp-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
