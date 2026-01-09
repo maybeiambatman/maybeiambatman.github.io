@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Internalizing System Design"
+title: "Reframing System Design"
 ---
 
-When it comes to System Design Interviews, I have a tendency to fall in the classic trap of thinking there is a *correct* architecture for every problem, which leaves me freezing up at the whiteboard (or zoom call). It took me time to internalize that system design isn't about memorizing diagrams, it's about managing trade-offs. I built this interactive tool to visualize that mental shift: showing exactly how moving a single 'requirement slider' (like latency or consistency) fundamentally influences your entire tech stack.
+When it comes to System Design Interviews, I have a tendency to fall into the classic trap of thinking there is a *correct* architecture for every problem. This mindset leaves me freezing up at the whiteboard (or Zoom call). It took me time to internalize that system design isn't about memorizing diagrams, it's about managing trade-offs. I built this interactive tool to visualize that mental shift: showing exactly how moving a single "requirement slider" (like latency or consistency) fundamentally influences your entire tech stack.
 
 I present to you...
 
@@ -433,7 +433,7 @@ I present to you...
 <div class="sds-widget" id="sds-widget">
 
   <div class="sds-header">
-    <h2 class="sds-title">System Design Trade-off Matrix</h2>
+    <h2 class="sds-title">The System Design Trade-off Matrix</h2>
     <p class="sds-subtitle">Adjust constraints to see architectural shifts.</p>
   </div>
 
