@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "System Design Sliders"
+title: "Internalizing System Design"
 ---
 
-Despite having ten years of industry experience I haven't done many system design interview. During these interviews, I have a tendency to fall in the classic trap of thinking there is a 'correct' architecture for every problem, which leaves me freezing up at the whiteboard. Once I realized that system design isn't about memorizing diagrams—it's about managing trade-offs, I built this interactive tool to visualize that mental shift: showing exactly how moving a single 'requirement slider' (like latency or consistency) fundamentally influences your entire tech stack.
+When it comes to System Design Interviews, I have a tendency to fall in the classic trap of thinking there is a *correct* architecture for every problem, which leaves me freezing up at the whiteboard (or zoom call). It took me time to internalize that system design isn't about memorizing diagrams, it's about managing trade-offs. I built this interactive tool to visualize that mental shift: showing exactly how moving a single 'requirement slider' (like latency or consistency) fundamentally influences your entire tech stack.
+
+I present to you...
 
 <style>
   /* Hokusai Great Wave Theme - System Design Widget */
