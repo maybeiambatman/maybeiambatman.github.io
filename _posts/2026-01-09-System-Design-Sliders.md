@@ -3,124 +3,98 @@ layout: post
 title: "System Design Sliders"
 ---
 
+A cheatsheet to help prepare for system design interviews.
+
 <style>
-  /* Scoped CSS to prevent conflicts with your blog theme */
+  /* XP-compatible styling */
   .sds-widget {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    font-family: Tahoma, "Segoe UI", sans-serif;
+    background: #ece9d8;
+    border: 2px solid #0054e3;
     padding: 0;
-    margin: 2rem 0;
-    color: #334155;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    color: #000;
     max-width: 100%;
     overflow: hidden;
-    position: relative; /* For modal positioning */
+    position: relative;
   }
 
   /* Header */
   .sds-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid #e2e8f0;
-    background: white;
+    padding: 8px 12px;
+    background: linear-gradient(180deg, #0a246a 0%, #0054e3 100%);
+    color: white;
   }
   .sds-title {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.25rem;
+    margin: 0;
+    font-size: 14px;
     font-weight: 700;
-    color: #0f172a;
   }
   .sds-subtitle {
-    margin: 0;
-    font-size: 0.875rem;
-    color: #64748b;
+    display: none;
   }
 
   /* Tabs */
   .sds-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
-    background: #f1f5f9;
-    border-bottom: 1px solid #e2e8f0;
+    gap: 2px;
+    padding: 8px;
+    background: #ece9d8;
+    border-bottom: 1px solid #aca899;
   }
   .sds-tab-btn {
-    background: white;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 600;
+    background: linear-gradient(180deg, #fff 0%, #ece9d8 100%);
+    border: 1px solid #003c74;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 400;
     cursor: pointer;
-    color: #64748b;
-    transition: all 0.2s;
+    color: #000;
+    font-family: Tahoma, sans-serif;
   }
   .sds-tab-btn:hover {
-    background: #e2e8f0;
+    background: linear-gradient(180deg, #fff 0%, #d4d0c8 100%);
   }
   .sds-tab-btn.active {
-    background: #2563eb;
+    background: #0054e3;
     color: white;
-    border-color: #2563eb;
+    border-color: #003c74;
   }
 
   /* Main Display Area */
   .sds-display {
-    padding: 1.5rem;
-    background: #1e293b; /* Dark bg for contrast */
+    padding: 12px;
+    background: #0054e3;
     color: white;
   }
   .sds-dim-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 13px;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 4px;
   }
   .sds-dim-desc {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    margin-bottom: 2rem;
-    line-height: 1.5;
+    font-size: 11px;
+    color: #cde;
+    margin-bottom: 12px;
+    line-height: 1.4;
   }
 
-  /* Slider Styling */
+  /* Slider */
   .sds-slider-container {
-    position: relative;
-    padding: 0 10px;
-    margin-bottom: 2rem;
+    margin-bottom: 12px;
   }
   .sds-range-input {
     width: 100%;
-    -webkit-appearance: none;
-    height: 8px;
-    border-radius: 4px;
-    background: #475569;
-    outline: none;
-  }
-  .sds-range-input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #3b82f6;
     cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   }
   .sds-range-labels {
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
-    font-size: 0.75rem;
-    color: #94a3b8;
-    text-transform: uppercase;
+    margin-top: 6px;
+    font-size: 10px;
+    color: #cde;
     font-weight: 600;
-    letter-spacing: 0.05em;
   }
   .sds-range-label {
     width: 33%;
@@ -129,142 +103,134 @@ title: "System Design Sliders"
   }
   .sds-range-label:first-child { text-align: left; }
   .sds-range-label:last-child { text-align: right; }
-  .sds-range-label.active { color: #60a5fa; }
+  .sds-range-label.active { color: #fff; font-weight: 700; }
 
-  /* Content Cards */
+  /* Content */
   .sds-content {
-    background: white;
-    padding: 1.5rem;
-    border-top: 1px solid #e2e8f0;
+    background: #fff;
+    padding: 12px;
+    border-top: 1px solid #aca899;
   }
 
   .sds-section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    border-bottom: 1px solid #aca899;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
   }
   .sds-pattern-name {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #0f172a;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
     margin: 0;
   }
   .sds-pattern-label {
-    font-size: 0.75rem;
+    font-size: 10px;
     text-transform: uppercase;
-    color: #2563eb;
+    color: #0054e3;
     font-weight: 700;
-    display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 2px;
   }
 
   /* Tags */
   .sds-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 4px;
+    margin-bottom: 12px;
   }
   .sds-tag {
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer; /* Clickable */
-    transition: all 0.2s;
-    border: 1px solid transparent;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 400;
+    cursor: pointer;
+    border: 1px solid;
+    font-family: Tahoma, sans-serif;
   }
-  .sds-tag:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  .sds-tag-tech {
+    background: #d4d0c8;
+    color: #000;
+    border-color: #808080;
   }
-  .sds-tag-tech { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
-  .sds-tag-tech:hover { background: #e2e8f0; border-color: #cbd5e1; }
-
-  .sds-tag-concept { background: #fffbeb; color: #92400e; border-color: #fcd34d; }
-  .sds-tag-concept:hover { background: #fef3c7; border-color: #f59e0b; }
+  .sds-tag-tech:hover { background: #ece9d8; }
+  .sds-tag-concept {
+    background: #ffffcc;
+    color: #000;
+    border-color: #808080;
+  }
+  .sds-tag-concept:hover { background: #ffffe0; }
 
   /* Pros Cons Grid */
   .sds-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 8px;
+    margin-bottom: 12px;
   }
   @media (max-width: 640px) { .sds-grid { grid-template-columns: 1fr; } }
 
   .sds-card {
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 0.875rem;
+    padding: 8px;
+    font-size: 11px;
+    border: 1px solid;
   }
-  .sds-card-pros { background: #ecfdf5; border: 1px solid #a7f3d0; }
-  .sds-card-cons { background: #fff1f2; border: 1px solid #fecdd3; }
+  .sds-card-pros { background: #e0ffe0; border-color: #008000; }
+  .sds-card-cons { background: #ffe0e0; border-color: #c00000; }
 
   .sds-card-title {
     font-weight: 700;
-    margin: 0 0 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    margin: 0 0 4px 0;
+    font-size: 11px;
   }
-  .sds-card-pros .sds-card-title { color: #047857; }
-  .sds-card-cons .sds-card-title { color: #be123c; }
+  .sds-card-pros .sds-card-title { color: #006000; }
+  .sds-card-cons .sds-card-title { color: #a00000; }
 
-  .sds-list { padding-left: 1rem; margin: 0; }
-  .sds-list li { margin-bottom: 0.25rem; }
+  .sds-list { padding-left: 16px; margin: 0; }
+  .sds-list li { margin-bottom: 2px; }
 
   /* Staff Note */
   .sds-staff-note {
-    background: #fff8eb;
-    border-left: 4px solid #f59e0b;
-    padding: 1rem;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.9rem;
-    color: #78350f;
+    background: #ffffcc;
+    border: 1px solid #808080;
+    border-left: 4px solid #f0c000;
+    padding: 8px;
+    font-size: 11px;
+    color: #000;
     font-style: italic;
   }
   .sds-staff-label {
-    font-weight: 800;
+    font-weight: 700;
     font-style: normal;
     display: block;
-    margin-bottom: 0.25rem;
-    color: #b45309;
+    margin-bottom: 4px;
+    color: #806000;
   }
 
-  /* Example Application Card */
+  /* Example Application */
   .sds-example {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+    background: #0054e3;
+    border: 1px solid #003c74;
+    padding: 8px;
+    margin-bottom: 12px;
     color: white;
   }
   .sds-example-label {
-    font-size: 0.7rem;
+    font-size: 9px;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    opacity: 0.9;
-    margin-bottom: 0.25rem;
-    display: block;
+    margin-bottom: 2px;
   }
   .sds-example-app {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin: 0 0 0.5rem 0;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
   }
   .sds-example-desc {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    opacity: 0.95;
+    font-size: 11px;
+    line-height: 1.4;
     margin: 0;
   }
 
-  /* Modal Overlay */
+  /* Modal */
   .sds-modal-overlay {
     display: none;
     position: absolute;
@@ -272,101 +238,86 @@ title: "System Design Sliders"
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 10;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 12px;
   }
   .sds-modal-overlay.open { display: flex; }
 
   .sds-modal {
-    background: white;
+    background: #ece9d8;
     width: 100%;
-    max-width: 400px;
-    border-radius: 12px;
+    max-width: 350px;
+    border: 2px solid #0054e3;
     overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    animation: sds-fade-up 0.2s ease-out;
-  }
-
-  @keyframes sds-fade-up {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .sds-modal-header {
-    padding: 1.5rem;
+    padding: 6px 8px;
     color: white;
     position: relative;
+    background: linear-gradient(180deg, #0a246a 0%, #0054e3 100%);
   }
-  .sds-modal-header.tech { background: #2563eb; }
-  .sds-modal-header.concept { background: #d97706; }
+  .sds-modal-header.tech { background: linear-gradient(180deg, #0a246a 0%, #0054e3 100%); }
+  .sds-modal-header.concept { background: linear-gradient(180deg, #6a4a0a 0%, #c08000 100%); }
 
   .sds-modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255,255,255,0.2);
-    border: none;
+    top: 4px;
+    right: 4px;
+    background: #c00000;
+    border: 1px solid #800000;
     color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
+    font-size: 14px;
     line-height: 1;
+    padding: 0;
   }
-  .sds-modal-close:hover { background: rgba(255,255,255,0.3); }
+  .sds-modal-close:hover { background: #ff0000; }
 
   .sds-modal-type {
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    opacity: 0.9;
-    margin-bottom: 0.25rem;
-    display: block;
+    margin-bottom: 2px;
   }
   .sds-modal-title {
     margin: 0;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 700;
   }
 
   .sds-modal-body {
-    padding: 1.5rem;
+    padding: 12px;
+    background: #fff;
   }
   .sds-modal-def {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #334155;
-    margin-bottom: 1.5rem;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #000;
+    margin-bottom: 12px;
   }
   .sds-modal-why {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    padding: 1rem;
-    border-radius: 8px;
+    background: #ece9d8;
+    border: 1px solid #aca899;
+    padding: 8px;
   }
   .sds-modal-why-label {
-    display: block;
-    font-size: 0.75rem;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #475569;
-    margin-bottom: 0.5rem;
+    color: #444;
+    margin-bottom: 4px;
   }
   .sds-modal-why-text {
-    font-size: 0.9rem;
-    color: #475569;
+    font-size: 11px;
+    color: #000;
     margin: 0;
   }
-
 </style>
 
 <div class="sds-widget" id="sds-widget">
