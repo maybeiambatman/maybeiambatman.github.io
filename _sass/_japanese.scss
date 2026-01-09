@@ -1,18 +1,24 @@
-// Japanese Art Theme - Inspired by Hokusai & Sumi-e
-// ================================================
+// Japanese Art Theme - Inspired by Hokusai, Sumi-e & Watercolor
+// ==============================================================
 
-// Color Palette - The Great Wave
+// Color Palette - The Great Wave + Watercolor
 $jp-indigo: #1e3a5f;         // Deep wave blue
 $jp-indigo-dark: #0f1f33;    // Darkest blue
 $jp-indigo-light: #3d5a80;   // Lighter wave
 $jp-cream: #faf8f5;          // Paper/foam white
 $jp-warm-white: #f5f0e8;     // Warm paper
 $jp-ink: #1a1a1a;            // Sumi ink black
-$jp-ink-light: #4a4a4a;      // Diluted ink
+$jp-ink-light: #5a5a5a;      // Diluted ink
 $jp-vermillion: #c41e3a;     // Seal red
 $jp-gold: #c9a227;           // Gold accent
 $jp-sky: #e8f0f5;            // Pale sky
 $jp-foam: #ffffff;           // Pure white foam
+
+// Watercolor accent colors
+$jp-water-blue: #6b9ac4;     // Soft water blue
+$jp-water-teal: #5d9a8d;     // Soft teal
+$jp-water-blush: #e8d4d4;    // Soft pink wash
+$jp-water-gold: #f0e6c8;     // Soft gold wash
 
 // Typography
 $jp-font-heading: 'Georgia', 'Times New Roman', serif;
@@ -44,6 +50,12 @@ body {
   line-height: 1.7;
   color: $jp-ink;
   background: $jp-cream;
+  // Subtle watercolor wash effect on body
+  background-image:
+    radial-gradient(ellipse at 0% 0%, rgba($jp-water-blue, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba($jp-water-teal, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba($jp-water-gold, 0.04) 0%, transparent 70%);
+  background-attachment: fixed;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -64,8 +76,29 @@ body {
 .jp-header {
   padding: $jp-space-lg 0 $jp-space-md;
   text-align: center;
-  border-bottom: 1px solid rgba($jp-indigo, 0.1);
   margin-bottom: $jp-space-lg;
+  position: relative;
+
+  // Watercolor wash under header
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($jp-water-blue, 0.4) 20%,
+      rgba($jp-indigo, 0.3) 50%,
+      rgba($jp-water-teal, 0.4) 80%,
+      transparent
+    );
+    border-radius: 50%;
+    filter: blur(1px);
+  }
 }
 
 .jp-site-title {
@@ -79,6 +112,7 @@ body {
   a {
     color: inherit;
     text-decoration: none;
+    border-bottom: none;
 
     &:hover {
       color: $jp-vermillion;
@@ -106,9 +140,10 @@ body {
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  transition: all 0.3s ease;
 
   &:hover {
+    color: $jp-vermillion;
     border-bottom-color: $jp-vermillion;
   }
 }
@@ -132,7 +167,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; border-bottom: 1px solid rgba($jp-indigo, 0.1); padding-bottom: $jp-space-xs; }
+h2 {
+  font-size: 1.5rem;
+  padding-bottom: $jp-space-xs;
+  position: relative;
+
+  // Watercolor underline effect
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba($jp-vermillion, 0.6),
+      rgba($jp-water-blue, 0.4),
+      transparent
+    );
+    border-radius: 1px;
+  }
+}
 h3 { font-size: 1.25rem; }
 h4 { font-size: 1.1rem; }
 
@@ -164,10 +220,15 @@ em, i {
 blockquote {
   margin: $jp-space-md 0;
   padding: $jp-space-sm $jp-space-md;
-  border-left: 3px solid $jp-indigo;
-  background: $jp-warm-white;
+  border-left: 3px solid $jp-vermillion;
+  background: linear-gradient(
+    135deg,
+    rgba($jp-water-blush, 0.3),
+    rgba($jp-warm-white, 0.8)
+  );
   font-style: italic;
   color: $jp-ink-light;
+  border-radius: 0 4px 4px 0;
 
   p:last-child {
     margin-bottom: 0;
@@ -201,15 +262,17 @@ pre {
 
 hr {
   border: none;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(
-    to right,
+    90deg,
     transparent,
-    rgba($jp-indigo, 0.2) 20%,
-    rgba($jp-indigo, 0.2) 80%,
+    rgba($jp-water-blue, 0.3) 15%,
+    rgba($jp-indigo, 0.2) 50%,
+    rgba($jp-water-teal, 0.3) 85%,
     transparent
   );
   margin: $jp-space-lg 0;
+  border-radius: 1px;
 }
 
 ul, ol {
@@ -239,10 +302,28 @@ img {
 .jp-post-item {
   margin-bottom: $jp-space-lg;
   padding-bottom: $jp-space-lg;
-  border-bottom: 1px solid rgba($jp-indigo, 0.08);
+  position: relative;
 
-  &:last-child {
-    border-bottom: none;
+  // Watercolor divider
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($jp-water-blue, 0.3) 20%,
+      rgba($jp-indigo, 0.15) 50%,
+      rgba($jp-water-teal, 0.3) 80%,
+      transparent
+    );
+  }
+
+  &:last-child::after {
+    display: none;
   }
 }
 
@@ -250,6 +331,11 @@ img {
   font-family: $jp-font-heading;
   font-size: 1.4rem;
   margin: 0 0 $jp-space-xs;
+  border-bottom: none;
+
+  &::after {
+    display: none;
+  }
 
   a {
     color: $jp-indigo-dark;
@@ -278,7 +364,8 @@ img {
   margin-top: $jp-space-sm;
   font-size: 0.85rem;
   color: $jp-indigo;
-  border-bottom: 1px solid $jp-indigo;
+  border-bottom: 1px solid rgba($jp-indigo, 0.3);
+  transition: all 0.2s ease;
 
   &:hover {
     color: $jp-vermillion;
@@ -293,12 +380,37 @@ img {
   text-align: center;
   margin-bottom: $jp-space-lg;
   padding-bottom: $jp-space-md;
-  border-bottom: 1px solid rgba($jp-indigo, 0.1);
+  position: relative;
+
+  // Watercolor accent
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($jp-vermillion, 0.5) 30%,
+      rgba($jp-water-blue, 0.4) 70%,
+      transparent
+    );
+    border-radius: 2px;
+    filter: blur(0.5px);
+  }
 }
 
 .jp-post-header .jp-post-title {
   font-size: 2rem;
   margin-bottom: $jp-space-xs;
+  border-bottom: none;
+
+  &::after {
+    display: none;
+  }
 }
 
 .jp-post-content {
@@ -312,16 +424,36 @@ img {
   text-align: center;
   padding: $jp-space-lg 0;
   margin-top: $jp-space-lg;
-  border-top: 1px solid rgba($jp-indigo, 0.1);
+  position: relative;
   color: $jp-ink-light;
   font-size: 0.8rem;
+
+  // Watercolor top border
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($jp-water-teal, 0.3) 20%,
+      rgba($jp-indigo, 0.2) 50%,
+      rgba($jp-water-blue, 0.3) 80%,
+      transparent
+    );
+  }
 }
 
 .jp-footer-wave {
   display: block;
   margin-bottom: $jp-space-sm;
   font-size: 1.5rem;
-  opacity: 0.5;
+  opacity: 0.4;
+  color: $jp-water-blue;
 }
 
 // ================================================
@@ -349,8 +481,8 @@ img {
 .jp-wave-divider {
   text-align: center;
   margin: $jp-space-lg 0;
-  color: $jp-indigo-light;
-  opacity: 0.4;
+  color: $jp-water-blue;
+  opacity: 0.5;
   font-size: 1.2rem;
   letter-spacing: 0.5em;
 }
@@ -359,7 +491,7 @@ img {
 // SELECTION
 // ================================================
 ::selection {
-  background: rgba($jp-indigo, 0.2);
+  background: rgba($jp-water-blue, 0.25);
   color: $jp-ink;
 }
 
@@ -376,11 +508,11 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba($jp-indigo, 0.3);
+  background: rgba($jp-indigo, 0.25);
   border-radius: 4px;
 
   &:hover {
-    background: rgba($jp-indigo, 0.5);
+    background: rgba($jp-indigo, 0.4);
   }
 }
 
