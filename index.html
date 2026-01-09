@@ -3,18 +3,19 @@ layout: default
 title: Blog
 ---
 
-<div class="xp-post-list">
+<ul class="jp-posts">
   {% for post in site.posts %}
-    <div class="xp-post-item">
-      <div class="xp-post-title">
+    <li class="jp-post-item">
+      <h2 class="jp-post-title">
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-      </div>
+      </h2>
+      <span class="jp-post-date">{{ post.date | date: "%B %e, %Y" }}</span>
 
-      <div class="xp-post-excerpt">
-        {{ post.excerpt }}
-      </div>
+      <p class="jp-post-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 40 }}
+      </p>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="xp-read-more">Read More</a>
-    </div>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="jp-read-more">Continue reading →</a>
+    </li>
   {% endfor %}
-</div>
+</ul>
